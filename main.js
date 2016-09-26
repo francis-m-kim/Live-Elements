@@ -1,7 +1,7 @@
 makeLiveElement = require('./components/makeLiveElement');
 Stringify = require('./utils/stringify');
 
-
+// 
 // "CHRISTMAS LIGHTS!"
 // elems = []
 //
@@ -43,6 +43,7 @@ Stringify = require('./utils/stringify');
 //       text: elemText[i],
 //       styles: {
 //         background: sample(colors),
+//         color: "white",
 //         opacity: ".3",
 //         borderRadius: "100px",
 //         fontSize: "8px"
@@ -80,33 +81,33 @@ Stringify = require('./utils/stringify');
 
 
 
-
-"ROTATION EXERCISE"
-
-elems = [];
-elems.forEach((e, i) => {
-  e.rotate({z: 360 - i*4}, 100000);
-  e.size({height: 200}, 3000);
-  e.move({x: i * 30}, 3000);
-})
-
-elems = [];
-for(var i = 0; i < 500; i++) {
-  elems.push(
-    makeLiveElement({
-      position: {x: (i * 20) % 500 + 350, y: i + 50},
-      size: {width: 2, height: 60},
-      styles: {
-        opacity: ".8",
-        background: Stringify.rgb((i) % 255, 0 , Math.abs(123 - i) % 255, .5)
-      }
-   })
-  )
-}
-
-elems.forEach((e, i) => {
-  e.rotate({z: 1000 + i * 20}, 20000);
-})
+// "ROTATION EXERCISE"
+//
+// elems = [];
+// elems.forEach((e, i) => {
+//   e.rotate({z: 360 - i*4}, 100000);
+//   e.size({height: 200}, 3000);
+//   e.move({x: i * 30}, 3000);
+// })
+//
+// elems = [];
+// for(var i = 0; i < 500; i++) {
+//   elems.push(
+//     makeLiveElement({
+//       position: {x: (i * 20) % 500 + 350, y: i + 50},
+//       size: {width: 2, height: 60},
+//       styles: {
+//         position: "absolute",
+//         opacity: ".8",
+//         background: Stringify.rgb((i) % 255, 0 , Math.abs(123 - i) % 255, .5)
+//       }
+//    })
+//   )
+// }
+//
+// elems.forEach((e, i) => {
+//   e.rotate({z: 1000 + i * 20}, 20000);
+// })
 
 
 

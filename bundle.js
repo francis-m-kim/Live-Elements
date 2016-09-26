@@ -47,7 +47,7 @@
 	makeLiveElement = __webpack_require__(1);
 	Stringify = __webpack_require__(2);
 
-
+	// 
 	// "CHRISTMAS LIGHTS!"
 	// elems = []
 	//
@@ -89,6 +89,7 @@
 	//       text: elemText[i],
 	//       styles: {
 	//         background: sample(colors),
+	//         color: "white",
 	//         opacity: ".3",
 	//         borderRadius: "100px",
 	//         fontSize: "8px"
@@ -126,33 +127,33 @@
 
 
 
-
-	"ROTATION EXERCISE"
-
-	elems = [];
-	elems.forEach((e, i) => {
-	  e.rotate({z: 360 - i*4}, 100000);
-	  e.size({height: 200}, 3000);
-	  e.move({x: i * 30}, 3000);
-	})
-
-	elems = [];
-	for(var i = 0; i < 500; i++) {
-	  elems.push(
-	    makeLiveElement({
-	      position: {x: (i * 20) % 500 + 350, y: i + 50},
-	      size: {width: 2, height: 60},
-	      styles: {
-	        opacity: ".8",
-	        background: Stringify.rgb((i) % 255, 0 , Math.abs(123 - i) % 255, .5)
-	      }
-	   })
-	  )
-	}
-
-	elems.forEach((e, i) => {
-	  e.rotate({z: 1000 + i * 20}, 20000);
-	})
+	// "ROTATION EXERCISE"
+	//
+	// elems = [];
+	// elems.forEach((e, i) => {
+	//   e.rotate({z: 360 - i*4}, 100000);
+	//   e.size({height: 200}, 3000);
+	//   e.move({x: i * 30}, 3000);
+	// })
+	//
+	// elems = [];
+	// for(var i = 0; i < 500; i++) {
+	//   elems.push(
+	//     makeLiveElement({
+	//       position: {x: (i * 20) % 500 + 350, y: i + 50},
+	//       size: {width: 2, height: 60},
+	//       styles: {
+	//         position: "absolute",
+	//         opacity: ".8",
+	//         background: Stringify.rgb((i) % 255, 0 , Math.abs(123 - i) % 255, .5)
+	//       }
+	//    })
+	//   )
+	// }
+	//
+	// elems.forEach((e, i) => {
+	//   e.rotate({z: 1000 + i * 20}, 20000);
+	// })
 
 
 
@@ -189,7 +190,7 @@
 	  var size = Object.assign({width: 100, height: 100}, params.size);
 	  var rotation = Object.assign({x: 0, y: 0, z: 0}, params.rotation);
 	  var text = params.text || '';
-	  var styles = params.styles || {};
+	  var styles = Object.assign({position: "absolute"}, params.styles);
 	  var image = Object.assign({size: Stringify.size(size)}, params.image);
 
 
@@ -246,7 +247,9 @@
 	  assignElementImage(image);
 	  assignElementStyles(styles);
 	  assignElementText(text);
+
 	  parent.appendChild(elem);
+
 
 	  var liveElement = {
 	    _change: function(values, newValues, assignmentFunc) {
@@ -357,25 +360,6 @@
 	}
 
 	var divs = [];
-
-
-
-
-	// for(var i = 0; i < 360; i += 1) {
-	//   deg = toRad(i);
-	//   radius = 200;
-	//   centerX = 300;
-	//   centerY = 300;
-	//   divs.push(makeLiveDiv(centerX + Math.sin(deg) * radius, centerY + Math.cos(deg) * radius, i));
-	// }
-	//
-	// function bigmove() {
-	//   divs.forEach((div) => {
-	//     div.move(Math.random() * 1 - .5, Math.random() * 1 - .5);
-	//   })
-	// }
-	//
-	// setInterval(bigmove, 25);
 
 	module.exports = makeLiveElement;
 

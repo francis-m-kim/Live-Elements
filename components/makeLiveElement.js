@@ -7,7 +7,7 @@ function makeLiveElement(params) {
   var size = Object.assign({width: 100, height: 100}, params.size);
   var rotation = Object.assign({x: 0, y: 0, z: 0}, params.rotation);
   var text = params.text || '';
-  var styles = params.styles || {};
+  var styles = Object.assign({position: "absolute"}, params.styles);
   var image = Object.assign({size: Stringify.size(size)}, params.image);
 
 
@@ -64,7 +64,9 @@ function makeLiveElement(params) {
   assignElementImage(image);
   assignElementStyles(styles);
   assignElementText(text);
+
   parent.appendChild(elem);
+
 
   var liveElement = {
     _change: function(values, newValues, assignmentFunc) {
@@ -175,24 +177,5 @@ function toRad(num) {
 }
 
 var divs = [];
-
-
-
-
-// for(var i = 0; i < 360; i += 1) {
-//   deg = toRad(i);
-//   radius = 200;
-//   centerX = 300;
-//   centerY = 300;
-//   divs.push(makeLiveDiv(centerX + Math.sin(deg) * radius, centerY + Math.cos(deg) * radius, i));
-// }
-//
-// function bigmove() {
-//   divs.forEach((div) => {
-//     div.move(Math.random() * 1 - .5, Math.random() * 1 - .5);
-//   })
-// }
-//
-// setInterval(bigmove, 25);
 
 module.exports = makeLiveElement;
