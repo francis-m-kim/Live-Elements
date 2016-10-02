@@ -47,82 +47,82 @@
 	makeLiveElement = __webpack_require__(1);
 	Stringify = __webpack_require__(2);
 
-	// 
-	// "CHRISTMAS LIGHTS!"
-	// elems = []
-	//
-	// origin = {x: window.innerWidth / 2, y: window.innerHeight / 2};
-	// radius = 200.0;
-	// num = 75;
-	// elemText = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-	//
-	// var central = makeLiveElement({
-	//   position: {
-	//     x: origin.x,
-	//     y: origin.y,
-	//     centered: true
-	//   },
-	//   size: {
-	//     width: 50,
-	//     height: 50
-	//   },
-	//   styles: {
-	//     background: Stringify.rgb(40, 60, 255, .8),
-	//     opacity: ".8",
-	//     borderRadius: "50px"
-	//   }
-	// });
-	//
-	//
-	//
-	// var colors = ["red", "blue", "green", "yellow"]
-	//
-	// for(var i = 0; i < num; i++) {
-	//   elems.push(
-	//     makeLiveElement({
-	//       position: {
-	//         x: Math.cos(i * 360.0 / num) * radius + origin.x,
-	//         y: Math.sin(i * 360.0 / num) * radius + origin.y,
-	//         centered: true
-	//       },
-	//       size: {width: 10, height: 10},
-	//       text: elemText[i],
-	//       styles: {
-	//         background: sample(colors),
-	//         color: "white",
-	//         opacity: ".3",
-	//         borderRadius: "100px",
-	//         fontSize: "8px"
-	//       }
-	//     })
-	//   )
-	// }
-	//
-	// function sample(array) {
-	//   return array[Math.floor(Math.random() * array.length)];
-	// }
-	// function randomDist(fromTo) {
-	//   return Math.random() * fromTo * 2 - fromTo;
-	// }
-	//
-	//
-	// setInterval(function() {
-	//   elems.forEach((elem, i) => {
-	//     elem.styles({
-	//       background: sample(colors)
-	//     })
-	//   });
-	// }, 1000)
-	//
-	//
-	// setTimeout(function() {
-	//   elems.forEach((elem, i) => {
-	//     elem.move({x: randomDist(200), y: randomDist(200)}, 5000);
-	//     var newSize = Math.random() * 30
-	//     elem.grow({width: newSize, height: newSize}, 5000);
-	//     elem.rotate({z: randomDist(i)}, 5000)
-	//   })
-	// }, 2500)
+
+	"CHRISTMAS LIGHTS!"
+	elems = []
+
+	origin = {x: window.innerWidth / 2, y: window.innerHeight / 2};
+	radius = 200.0;
+	num = 75;
+	elemText = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+	var central = makeLiveElement({
+	  position: {
+	    x: origin.x,
+	    y: origin.y,
+	    centered: true
+	  },
+	  size: {
+	    width: 50,
+	    height: 50
+	  },
+	  styles: {
+	    background: Stringify.rgb(40, 60, 255, .8),
+	    opacity: ".8",
+	    borderRadius: "50px"
+	  }
+	});
+
+
+
+	var colors = ["red", "blue", "green", "yellow"]
+
+	for(var i = 0; i < num; i++) {
+	  elems.push(
+	    makeLiveElement({
+	      position: {
+	        x: Math.cos(i * 360.0 / num) * radius + origin.x,
+	        y: Math.sin(i * 360.0 / num) * radius + origin.y,
+	        centered: true
+	      },
+	      size: {width: 10, height: 10},
+	      text: elemText[i],
+	      styles: {
+	        background: sample(colors),
+	        color: "white",
+	        opacity: ".3",
+	        borderRadius: "100px",
+	        fontSize: "8px"
+	      }
+	    })
+	  )
+	}
+
+	function sample(array) {
+	  return array[Math.floor(Math.random() * array.length)];
+	}
+	function randomDist(fromTo) {
+	  return Math.random() * fromTo * 2 - fromTo;
+	}
+
+
+	setInterval(function() {
+	  elems.forEach((elem, i) => {
+	    elem.styles({
+	      background: sample(colors)
+	    })
+	  });
+	}, 1000)
+
+
+	setTimeout(function() {
+	  elems.forEach((elem, i) => {
+	    elem.move({x: randomDist(200), y: randomDist(200)}, 5000);
+	    var newSize = Math.random() * 30
+	    elem.grow({width: newSize, height: newSize}, 5000);
+	    elem.rotate({z: randomDist(i)}, 5000)
+	  })
+	}, 2500)
 
 
 
